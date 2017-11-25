@@ -1,0 +1,86 @@
+
+<form  method="POST"  class="js-sendPost">
+
+	<div class="form-group">
+		<label for ="titlePost">Nombre</label>
+		<input type="text" class="form-control" name="nombre" placeholder="Nombre" value="" required>
+	</div>
+	<div class="form-group">
+		<label for ="contentPos">Descripcion</label>
+		<input type="text" class="form-control"  name="descripcion"placeholder="Descripcion" value="" required>
+	</div>
+	<div class="form-group">
+		<label for ="extractPost">Cantidades Disponibles</label>
+		<input type="text" class="form-control"  name="cantidadDisponible" placeholder="cantidad Disponible" required>
+	</div>
+	<div class="form-group">
+		<label for ="authorPost">Peso</label>
+		<input type="text" class="form-control" name="Peso" placeholder="Peso" required>
+	</div>
+	<div class="form-group">
+		<label for ="authorPost">Caracteristicas</label>
+		<input type="text" class="form-control" name="Caracteristica" placeholder="Caracteristica" required>
+	</div>
+	<div class="form-group">
+		<label for ="authorPost">Precio</label>
+		<input type="text" class="form-control" name="Precio" placeholder="Precio" required>
+	</div>
+	<div class="form-group">
+		<label for ="authorPost">Tienda</label>
+		<input type="text" class="form-control" name="Tienda" placeholder="Tienda" required>
+	</div>
+	<div class="form-group">
+		<label for ="authorPost">Vendedor</label>
+		<input type="text" class="form-control" name="Vendedor" placeholder="Vendedor" required>
+	</div>
+	<div class="form-group">
+		<label for ="authorPost">Puntaje</label>
+		<input type="text" class="form-control" name="Puntaje" placeholder="Puntaje" required>
+	</div>
+	<div class="form-group">
+		<label for ="authorPost">Condicion del Producto </label>
+		<input type="text" class="form-control" name="condicionProducto" placeholder="condicion del Producto" required>
+	</div>
+	<div class="form-group">
+		<label for ="authorPost">Ubicacion</label>
+		<input type="text" class="form-control" name="Ubicacion" placeholder="Ubicacion" required>
+	</div>
+	<div class="form-group">
+		<label for ="authorPost">Bodega</label>
+		<input type="text" class="form-control" name="Bodega" placeholder="Bodega" required>
+	</div>
+	<div class="form-group">
+		<label for ="authorPost">Tiempo</label>
+		<input type="text" class="form-control" name="tiempoEntrega" placeholder="Tiempo de Entrega" required>
+	</div> 
+	<button type="submit" class="btn btn-default js-saveNews">Publicar</button>
+
+</form>
+
+	<div class="imagen_post__top" >
+		<form  method="POST" action="/dashboard/imagen" enctype="multipart/form-data" class="dropzone imagen_post">
+			<div class="form-group">
+				<label for ="imagePost">Imagen</label>
+			</div>
+		</form>
+	</div>
+
+	<div class="gallery_post__top">
+		<form  method="POST" action="/dashboard/imagen" enctype="multipart/form-data" class="dropzone gallery_post">
+			<div class="form-group">
+				<label for ="galleryPost">Galeria</label>
+			</div>
+		</form>
+	</div>
+
+
+
+<div class="alert alert-success ">
+	<strong>¡Completado!</strong> La imagen a sido guardada satisfactoria mente
+</div>
+<div class="alert alert-warning js-warning" style ="display:none">
+	<strong>¡Atencion!</strong> se a producido el siguiente error :
+</div>
+<div class="alert alert-danger" style ="display:none">
+	<strong>¡Error!</strong> La imagen no a sido guardada
+</div>
