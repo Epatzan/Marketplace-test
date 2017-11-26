@@ -1,11 +1,7 @@
 {
 	"apps":[
 		{
-<<<<<<< HEAD
-			"name": "imagenes_urbanas",
-=======
 			"name": "MarketPlace",
->>>>>>> feature
 			"script": "./bin/www",
 			"watch": true,
 			"ignore_watch":["public/uploads"],
@@ -14,14 +10,7 @@
 			"env": {
 				"NODE_ENV": "development",
 				"NODE_PORT": 8310
-<<<<<<< HEAD
-			} 
-		}
-	]
-}
-=======
 			}
 		}
 	]
 }
->>>>>>> feature

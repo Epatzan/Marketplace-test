@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-//"use strict";
-=======
 "use strict";
 var drop = require('./js-dropzone');
->>>>>>> feature
 ///var $ = require('jquery');
 
 /*--------
