@@ -1,5 +1,5 @@
 "use strict";
-var drop = require('./js-dropzone');
+//var drop = require('./js-dropzone');
 ///var $ = require('jquery');
 
 /*--------
