@@ -9,6 +9,7 @@ var acl = require(_config.SystemPath + '/config/middleweres');
 var passport = require('passport');
 var mysql = require('mysql');
 var upload = multer({dest: './public/uploads'});
+/** Coneccion con mysql user y password**/
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -26,7 +27,7 @@ routes.post('/imagen', upload.single('file'),function (req, res){
 
 });
 
-//
+//routh de Index
 
 routes.get('/',function (req, res){
 	res.render('Dashboard/index_dashboard',{
@@ -42,7 +43,6 @@ routes.get('/Consulta',function (req , res){
   con.connect(function(err) {
   if (err) throw err;
  con.query("SELECT Nombre , cantidadDisponible , Precio , Caracteristica FROM Productos", function (err, rows, fields) {
- //con.query("SELECT Nombre , cantidadDisponible FROM Productos WHERE iD = 4", function (err, rows, fields) {
     if (err) throw err;
    console.log(rows);
  var string  = JSON.stringify(rows);
@@ -62,7 +62,6 @@ routes.get('/Consulta',function (req , res){
 routes.post('/Consulta',function (req , res){
   con.connect(function(err) {
   if (err) throw err;
- //con.query("SELECT * FROM Productos", function (err, result, fields) {
  con.query("SELECT Nombre FROM Productos WHERE iD = 4", function (err, result, fields) {
     if (err) throw err;
    console.log(result);
@@ -77,7 +76,7 @@ routes.get('/statistics',function (req, res){
 	});
 
 });
-//routh de media
+//routh de Eliminar
 routes.get('/Eliminar',function (req, res){
 		res.render('Dashboard/dashboard-media',{
 		title:'Seccion de media',
@@ -85,7 +84,7 @@ routes.get('/Eliminar',function (req, res){
 	});
   con.connect(function(err) {
   if (err) throw err;
- //con.query("SELECT * FROM Productos", function (err, result, fields) {
+
  con.query("DELETE  FROM Productos ", function (err, result, fields) {
     if (err) throw err;
    console.log(result);
@@ -93,6 +92,7 @@ routes.get('/Eliminar',function (req, res){
   });
 });
 
+//routhes de Creacion de producto
 routes.get('/create',function (req, res){
   res.render('Dashboard/create-post',{
    title: 'create',
@@ -101,20 +101,13 @@ routes.get('/create',function (req, res){
    });
 });
 routes.post('/create',function (req, res){
-
 	con.connect(function(err) {
 	  if (err) throw err;
 	  console.log("Connected!");
-	/*	con.query("CREATE DATABASE Catalogo", function (err, result) {
-	 if (err) throw err;
-	 console.log("Database created");
- });*/
-
-
-  //var sql = "CREATE TABLE Productos (	iD INT AUTO_INCREMENT PRIMARY KEY,Nombre VARCHAR(255),Descripcion VARCHAR(255),cantidadDisponible INT(10),Peso DECIMAL(10,2),Caracteristica VARCHAR(255),Precio DECIMAL(10,2),Imagen VARCHAR(255),Tienda VARCHAR(255),Vendedor VARCHAR(255),Puntaje DECIMAL (10,2), condicionProducto VARCHAR(255),Ubicacion VARCHAR(255),Bodega VARCHAR(255), tiempoEntrega VARCHAR(255))";
-
-		//var sql2 = "INSERT INTO customers (name, address) VALUES ('Company Inc', 'Highway 37')";
-		//var sql2 = 'INSERT INTO Productos (Nombre, Descripcion, cantidadDisponible, Peso, Caracteristica, Precio, Imagen, Tienda, Vendedor, Puntaje, condicionProducto, Ubicacion, Bodega, tiempoEntrega) VALUES ?';
+		con.query("CREATE DATABASE Catalogo", function (err, result) {
+    if (err) console.log(err);
+   console.log("Database created");
+  });
     var sql2 = 'INSERT INTO Productos SET ?';
     var cambioGT = 7.33;
     var seguro = (parseInt(req.body.Precio) *0.07);
@@ -143,10 +136,8 @@ routes.post('/create',function (req, res){
     };
     con.query(sql2, data , function (err, result) {
 	    if (err) throw err;
-	   //console.log("Table created");
 			console.log("Datos Creados");
       console.log(result);
-      //alert("Producto ingresado correctamente");
       res.render('Dashboard/create-post',{
        title: 'create',
        layout: 'layout/dashboard',
@@ -159,7 +150,7 @@ con.end();
 });
 
 
-
+//routhes de  edicion
 routes.get('/edit',function (req, res){
 	res.render('Dashboard/index_dashboard',{
 		title:'edit',
@@ -169,19 +160,5 @@ routes.get('/edit',function (req, res){
 
 });
 routes.put('/edit/:id',function (req, res){
-	Blogs.findByIdAndUpdate({'_id':req.params.id},{
-			title 	:  req.body.title,
-			date  	:  req.body.date,
-			content	:  req.body.content,
-			extract	:  req.body.extract,
-			author	:  req.body.author,
-			image	:  req.body.image,
-			gallery	:  req.body.gallery,
-
-	},function(err, obj){
-		if(err) res.send(err);
-		else    res.send('Actualizado');
-	});
-
 });
 module.exports = routes;
