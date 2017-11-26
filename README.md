@@ -37,8 +37,8 @@ Instale las dependecies y las devDependecies y ahora ejecute el servidor
 
 ```sh
 $ cd MarketPlace-test
-$ npm install -d
-$ npm install npm install pm2 -g 
+$ npm install 
+$ npm install pm2 -g 
 $ npm install --global gulp-cli
 $ pm2 start process.json
 $ gulp
