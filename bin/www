@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+var debug = require('debug')('http');
+
+var http = require('http');
+var Server = require('../server/server');
+var config = require('../config');
+
+Server.set('PORT',config.port);
+var server = http.createServer(Server);
+server.listen(Server.get('PORT'),function(){
+	debug('Aplicacion corriendo en ' + Server.get('PORT'));
+});
