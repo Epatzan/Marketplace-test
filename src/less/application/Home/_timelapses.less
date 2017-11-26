@@ -1,0 +1,19 @@
+.timelapse_container{
+	height: 600px;
+	[data-element="timelapse"]{
+		height: 100%;
+		background-color: blue;
+		&:first-child{
+			transition: 5s all ease;
+			-webkit-transition: all 500ms cubic-bezier(0.785, 0.135, 0.150, 0.860); 
+			background-color: white;
+			&:hover{
+				background-color: green;
+			}
+		}
+		&:last-child{
+			background-color: red;
+		}
+		
+	}
+}

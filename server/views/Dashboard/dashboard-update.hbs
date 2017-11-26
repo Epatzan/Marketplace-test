@@ -1,0 +1,33 @@
+<nav class="navbar navbar-default">
+  <div class="navbar-right">
+      <a class="navbar-brand" href="/dashboard/create">Crear</a>
+      <a class="navbar-brand" href="">Editar</a>
+      <a class="navbar-brand" href="#">Borrar</a>     
+  </div>
+</nav>
+<div>
+{{#each blogs}}
+  {{title}} 
+  <!--<img src="{{image}}"> -->   
+{{/each}}
+
+</div>
+<nav>
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="?page=1">1</a></li>
+    <li><a href="?page=2">2</a></li>
+    <li><a href="?page=3">3</a></li>
+    <li><a href="?page=4">4</a></li>
+    <li><a href="?page=5">5</a></li>
+    <li>
+      <a href="" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>

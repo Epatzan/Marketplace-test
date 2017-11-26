@@ -1,0 +1,9 @@
+{
+  "Application_name": "MarketPlace",
+  "modules":{
+  	 "Main"	:"Main",
+  	 "Dashboard":"Dashboard"
+
+
+  }
+}
