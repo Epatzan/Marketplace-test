@@ -23,7 +23,7 @@ MarketPlace usa un numero de  proyectos open source como por ejemplo:
 * [Express] - fast node.js network app framework [@tjholowaychuk]
 * [Gulp] - Para el sistema de copilacion
 * [jQuery] -  para  manejo de datos
-* [JavaScript] - para  el backEnd 
+* [JavaScript] - para  el backEnd
 * [Pm2] -  Production process manager for Node.js
 
 
@@ -38,14 +38,25 @@ Instale las dependecies y las devDependecies y ahora ejecute el servidor
 ```sh
 $ cd MarketPlace-test
 $ npm install -d
-$ npm install pm2 -g 
+$ npm install pm2 -g
 $ npm install --global gulp-cli
 $ pm2 start process.json
 $ gulp
 ```
-en el navegor web ingresamos a 
+en el navegor web ingresamos a
 http://localhost:8310/
 y estamos listo para el uso de la aplicacion
+
+### Configuracion Mysql
+En el routes.js de Dashboard encontrara la seccion para configurar la base de datos
+```
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "Miusuario",
+  password: "Mipassword",
+  database: "MiBasedeDatos"
+});
+```
 
 
 ### Plugins
@@ -63,7 +74,7 @@ MarketPlace requiere de los siguiente extenciones para poder trabajar correctame
 
 ### Por Hacer
 
- 
+
  -Creacion de version para mobiles
 
 Creditos
@@ -86,11 +97,11 @@ MIT
 
 
 
-   
 
- 
-  
- 
+
+
+
+
    [node.js]: <http://nodejs.org>
    [Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
    [jQuery]: <http://jquery.com>
